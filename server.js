@@ -150,7 +150,8 @@ app.post('/api/login', (req, res) => {
 })
 
 app.get('/api/me', Verify, (req, res, next) => {
-    db.collection(USERS).findOne({'_id': req.userId}, (err, user) => {
+    var id = ObjectID(req.userId)
+    db.collection(USERS).findOne({'_id': id}, (err, user) => {
         if (err) {
             console.log('Error getting user info', err)
         } 

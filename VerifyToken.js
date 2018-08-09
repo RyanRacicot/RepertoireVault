@@ -11,7 +11,7 @@ function verifyToken(req, res, next) {
     }
     // if everything good, save to request for use in other routes
     req.userId = decoded.id
-    console.log('token userId', req.userId)
+    console.log('Logged In UserId: ', req.userId)
     next();
   });
 }
