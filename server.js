@@ -105,6 +105,7 @@ app.delete('/api/vault/:id', Verify, (req, res) => {
 
 */
 app.post('/api/register', (req, res) => {
+    console.log('Register req.body.username:', req.body.username)
     db.collection(USERS).find({'username': req.body.username}, (error, existingUser) => {
         if (error) res.status(500)
         if (existingUser) {
@@ -131,6 +132,7 @@ app.post('/api/register', (req, res) => {
 })
 
 app.post('/api/login', (req, res) => {
+    console.log('Login req.body.username:', req.body.username)
     db.collection(USERS).findOne({'username': req.body.username}, (err, user) => {
         if (err) { return res.status(500).send('Error on Server') }
         if (!user) { return res.status(404).send('User not found') }
