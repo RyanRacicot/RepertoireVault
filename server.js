@@ -106,10 +106,10 @@ app.delete('/api/vault/:id', Verify, (req, res) => {
 */
 app.post('/api/register', (req, res) => {
     console.log('Register req.body.username:', req.body.username)
-    db.collection(USERS).find({'username': req.body.username}, (error, existingUser) => {
+    db.collection(USERS).findOne({'username': req.body.username}, (error, existingUser) => {
         if (error) res.status(500)
         if (existingUser) {
-            res.status(409).send(existingUser)
+            res.status(409).json(existingUser)
         } else {
             var hashedPass = bcrypt.hashSync(req.body.password, 8)
 
