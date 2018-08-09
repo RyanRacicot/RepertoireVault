@@ -108,7 +108,7 @@ app.post('/api/register', (req, res) => {
     db.collection(USERS).find({'username': req.body.username}, (error, existingUser) => {
         if (error) res.status(500)
         if (existingUser) {
-            res.status(409).send('Username already taken')
+            res.status(409).json(existingUser)
         } else {
             var hashedPass = bcrypt.hashSync(req.body.password, 8)
 
@@ -142,7 +142,7 @@ app.post('/api/login', (req, res) => {
             var token = jwt.sign({ id: user._id}, config.secret, {
                 expiresIn: 86400
             })
-            return res.status(200).send({auth: true, user: req.body.username, typedPass: req.body.password, storedPass: user.password, token: token})
+            return res.status(200).send({auth: true, user: req.body.username, token: token})
         }
     })
 })
