@@ -1,0 +1,11 @@
+$breakpoint-phone: 420px;
+@media (max-width: $breakpoint-phone) {
+    .addModal {
+        transform: translateX(25px);
+        max-width: 375px;
+
+        button {
+            margin: 2px;
+        }
+    }
+}

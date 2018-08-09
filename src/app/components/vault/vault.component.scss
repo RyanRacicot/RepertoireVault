@@ -1,0 +1,32 @@
+.grid {
+    background-color: white;
+    height: 100%;
+}
+.vault .table-scroll {
+    height: 81vh;
+    overflow-y: scroll;
+}
+
+.filterBar {
+    display: inline-block;
+    width: 60%;
+}
+.create {
+    text-align: center;
+}
+
+$breakpoint-phone: 420px;
+@media (max-width: $breakpoint-phone) {
+    #pieceComposer, #pieceOpera, #pieceLanguage, #pieceGenre, #pieceStatus, #pieceLocation {
+        display: none;
+    }
+
+    .editModal {
+        transform: translateX(25px);
+        max-width: 375px;
+
+        button {
+            margin: 2px;
+        }
+    }
+}

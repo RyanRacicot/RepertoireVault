@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+$main-blue: rgba($color: #001933, $alpha: 0.8);
+body {
+    background-image: url('./assets/Repertoire_Vault_Background.svg');
+    background-size: 625px;
+}
+
+.primary-color-bg {
+    background-color: $main-blue;
+}
+
+.primary-color-bg-dark {
+    background-color: darken($main-blue, 4%);
+}
+
+.primary-color-bg-light {
+    background-color: lighten($main-blue, 4%);
+}

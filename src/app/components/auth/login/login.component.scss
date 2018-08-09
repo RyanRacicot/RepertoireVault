@@ -1,0 +1,25 @@
+.container {
+    max-width: 650px;
+    margin-top: 10em;
+    align-content: center;
+    text-align: center;
+}
+
+.login-form {
+    margin: auto;
+    min-width: 200px;
+    max-width: 450px;
+    width: 100%;
+    transform: translateY(-25px);
+}
+
+#innerCard {
+    transform: translateY(-35px);
+    padding-top: 10px;
+    padding-bottom: 7px;
+    border-radius: 5px;
+}
+
+#outerCard {
+    justify-content: center;
+}

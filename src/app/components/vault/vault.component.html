@@ -1,0 +1,106 @@
+<div class="container grid">
+  <div class="create">
+    <div class="md-form filterBar">
+        <input (keyup)="filter($event)" class="form-control" type="search" id="filter" aria-label="Search" mdbInputDirective>
+        <label for="filter">
+          <i class="fa fa-search"></i>
+        </label>
+    </div>
+    <create (notify)="refresh()"></create>
+  </div>
+  <div class="vault">
+    <div class="table-scroll">
+      <table class="table table-striped table-hover table-borderless" id="repTable">
+        <tbody>
+          <tr *ngFor="let piece of pieces">
+            <th id="pieceTitle">{{piece.title}}</th>
+            <th id="pieceComposer">{{piece.composer}}</th>
+            <th id="pieceOpera">{{piece.opera}}</th>
+            <th id="pieceLanguage">{{piece.language}}</th>
+            <th id="pieceGenre">{{piece.genre}}</th>
+            <th id="pieceStatus">{{piece.status}}</th>
+            <th id="pieceLocation">{{piece.location}}</th>
+            <th>
+              <a class="btn-sm primary-color-bg text-white" 
+                (click)="selectToEdit(piece)">
+                <i class="fa fa-edit white-text m-1" aria-hidden="true"></i>
+              </a>
+           </th>
+         </tr>
+       </tbody>
+     </table>
+   </div>
+</div>
+
+<!-- EDIT MODAL -->
+<div mdbModal #editModal="mdbModal" class="modal fade left" [config]="{backdrop: true}"tabindex="-2" role="dialog" aria-labelledby="editModal"
+    aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-left" role="document">
+        <div class="modal-content editModal">
+            <div class="modal-header">
+                <h2><strong>Edit</strong></h2> 
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="onSave()">
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="title" [(ngModel)]="pieceService.bufferPiece.title" name="title">
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="composer" [(ngModel)]="pieceService.bufferPiece.composer" name="composer">
+                        <label for="title">Composer</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="opera" [(ngModel)]="pieceService.bufferPiece.opera" name="opera">
+                        <label for="title">Opera</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="language" [(ngModel)]="pieceService.bufferPiece.language" name="language">
+                        <label for="title">Language</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="genre" [(ngModel)]="pieceService.bufferPiece.genre" name="genre">
+                        <label for="title">Genre</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="status" [(ngModel)]="pieceService.bufferPiece.status" name="status">
+                        <label for="title">Status</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="location" [(ngModel)]="pieceService.bufferPiece.location" name="location">
+                        <label for="title">Location</label>
+                    </div>
+                    
+                    <button type="button" class="btn-floating btn primary-color-bg waves-light" aria-label="Close" (click)="editModal.hide()" mdbWavesEffect>Cancel</button>
+                    <button type="submit" class="btn-floating btn blue-grey lighten-2 waves-light" (click)="editModal.hide()" mdbWavesEffect>Save</button>
+                    <button type="button" class="btn-floating btn danger-color text-white waves-light" (click)="deleteModal.show()" mdbWavesEffect>Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Confirmation -->
+    <!-- Delete Confirmation Modal -->
+<div mdbModal #deleteModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="deleteModal"
+aria-hidden="true">
+<div class="modal-dialog modal-md" role="document">
+  <div class="modal-content">
+    <div class="modal-body">
+      <h2>Are you sure you want to delete
+        <i>{{this.pieceService.selectedPiece.title}}</i>
+        ?</h2>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" (click)="this.onDelete()">Delete</button>
+      <button type="button" class="btn blue-grey" aria-label="Close" (click)="deleteModal.hide()">Cancel</button>
+    </div>
+  </div><!-- Modal Body -->
+</div><!-- Delete Modal Dialog -->
+</div><!-- Delete Modal -->
+</div><!-- Edit Modal -->

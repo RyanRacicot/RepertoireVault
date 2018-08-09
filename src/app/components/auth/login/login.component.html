@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="z-depth-2">
+        <div class="card" id="outerCard">
+            <div class="card-body">
+                <div class="z-depth-2 primary-color-bg" id="innerCard">
+                    <h1 class="text-white">Login</h1>
+                </div>
+                <form (ngSubmit)="onLogin()" class="login-form">
+                    <div id="invalidLogin">
+                        <p *ngIf="invalidLogin" id="invalidLogin" class="text-center red-text">Incorrect Username or Password</p>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" class="form-control" type="text" 
+                        id="username" [(ngModel)]="username" name="username">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" class="form-control" type="password" 
+                        id="password" [(ngModel)]="password" name="password">
+                        <label for="password">Password</label>
+                    </div>
+            
+                    <button type="submit" class="btn blue-grey lighten-2 waves-light" mdbWavesEffect>Login</button>
+                    <button class="btn primary-color-bg waves-light" routerLink="/register" mdbWavesEffect>Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

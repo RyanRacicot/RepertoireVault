@@ -1,0 +1,96 @@
+<!-- <div *ngIf="this.pieceService.pieceSelected" class="card" style="padding-bottom: 15px">
+  <div *ngIf="!this.pieceService.editing" class="card-body">
+    <button type="button" class="close pull-right" (click)="this.pieceService.unSelectPiece()">
+        <span aria-hidden="true">×</span>
+    </button>
+    <h3>{{this.pieceService.selectedPiece.title}}</h3>
+    <h4>{{this.pieceService.selectedPiece.composer}}</h4>
+    <div class="piece-info">
+      <p id="body">
+        <i>Opera: </i> {{this.pieceService.selectedPiece.opera}}
+      </p>
+      <p id="language">
+        <i>Language: </i> {{this.pieceService.selectedPiece.language}}
+      </p>
+      <p id="genre">
+        <i>Genre: </i> {{this.pieceService.selectedPiece.genre}}
+      </p>
+      <p id="status">
+        <i>Status: </i> {{this.pieceService.selectedPiece.status}}
+      </p>
+      <p id="location">
+        <i>Location: </i> {{this.pieceService.selectedPiece.location}}
+      </p>
+      <div class="buttons text-white">
+          <a class="btn-floating btn-sm blue-grey lighten-2 waves-light" (click)="this.pieceService.editing = true"mdbWavesEffect>
+            Edit
+          </a>
+          <a class="btn-floating btn-sm danger-color waves-light" (click)="onDelete()" mdbWavesEffect>
+            Delete
+          </a>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="this.pieceService.editing" class="card-body">
+    <button type="button" class="close pull-right" (click)="this.pieceService.unSelectPiece()">
+        <span aria-hidden="true">×</span>
+    </button>
+    <h3>{{this.pieceService.bufferPiece.title}}</h3>
+    <form (ngSubmit)="this.pieceService.savePiece()" class="login-form">
+        <div class="md-form">
+            <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                id="title" [(ngModel)]="this.pieceService.bufferPiece.title" name="title">
+            <label for="title">Title</label>
+        </div>
+      
+        <div class="md-form">
+            <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                id="composer" [(ngModel)]="this.pieceService.bufferPiece.composer" name="composer">
+            <label for="title">Composer</label>
+        </div>
+      
+        <div class="md-form">
+            <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                id="opera" [(ngModel)]="this.pieceService.bufferPiece.opera" name="opera">
+            <label for="title">Opera</label>
+        </div>
+      
+        <div class="md-form">
+            <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                id="language" [(ngModel)]="this.pieceService.bufferPiece.language" name="language">
+            <label for="title">Language</label>
+        </div>
+      
+        <div class="md-form">
+            <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                id="genre" [(ngModel)]="this.pieceService.bufferPiece.genre" name="genre">
+            <label for="title">Genre</label>
+        </div>
+      
+        <div class="md-form">
+            <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                id="status" [(ngModel)]="this.pieceService.bufferPiece.status" name="status">
+            <label for="title">Status</label>
+        </div>
+      
+        <div class="md-form">
+            <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                id="location" [(ngModel)]="this.pieceService.bufferPiece.location" name="location">
+            <label for="title">Location</label>
+        </div>
+        <div class="buttons text-white">
+          <a class="btn-floating btn-sm blue-grey lighten-2 waves-light" (click)="this.pieceService.unSelectPiece()"mdbWavesEffect>
+            Cancel
+          </a>
+          <a class="btn-floating btn-sm blue-grey lighten-2 waves-light" (click)="this.onSave()"mdbWavesEffect>
+            Save
+          </a>
+          <a class="btn-floating btn-sm danger-color waves-light pull-right" (click)="deleteModal.show()" mdbWavesEffect>
+              Delete
+          </a>
+        </div>
+      </form>
+    </div>
+</div> -->
+ 
+

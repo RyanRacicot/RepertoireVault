@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="z-depth-2">
+        <div class="card" id="outerCard">
+            <div class="card-body">
+                <div class="z-depth-2 primary-color-bg" id="innerCard">
+                    <h1 class="text-white">Register</h1>
+                </div>
+                <p *ngIf="!passwordsMatch" class="text-center">Passwords did not match</p>
+                <form (ngSubmit)="onRegister()" class="register-form">
+                    <div id="usernameTaken">
+                        <p *ngIf="usernameTaken" id="usernameTaken" class="text-center red-text">Error Registering</p>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" class="form-control" type="text" id="username" [(ngModel)]="username" name="username">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" class="form-control" type="text" id="email" [(ngModel)]="email" name="email">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" class="form-control" type="password" id="password" [(ngModel)]="password" name="password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" class="form-control" type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword">
+                        <label for="confirmPassword">Confirm Password</label>
+                    </div>
+            
+                    <button class="btn primary-color-bg waves-light" type="submit" mdbWavesEffect>Register</button>
+                    <button class="btn blue-grey lighten-2 waves-light" routerLink="/login" mdbWavesEffect>Back</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

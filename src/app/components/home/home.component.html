@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="z-depth-2 primary-color-bg" id="innerCard">
+        <img src="../../../assets/Logo.svg" alt="logo" id="logo">
+    </div>
+    <div *ngIf="this.loginService.isLoggedIn" id="loggedIn">
+        <button class="btn btn-lg primary-color-bg" routerLink='/vault'>Vault</button>
+    </div>
+
+    <div *ngIf="!this.loginService.isLoggedIn" id="notLoggedIn">
+        <button class="btn btn-lg primary-color-bg" routerLink='/login'>Login</button>
+
+        <button class="btn btn-lg blue-grey lighten-2" routerLink='/register'>Register</button>
+    </div>
+</div>

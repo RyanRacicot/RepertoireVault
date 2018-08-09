@@ -1,0 +1,58 @@
+<button class="btn bt-lg primary-color-bg waves-light" (click)="addModal.show()" mdbWavesEffect>
+    <!-- <mdb-icon icon="plus" size="lg"></mdb-icon> -->
+    Add
+</button>
+
+<!-- Full-height right Modal -->
+<div mdbModal #addModal="mdbModal" class="modal fade right" [config]="{backdrop: true}"tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-full-height modal-right" role="document">
+        <div class="modal-content addModal">
+            <div class="modal-header">
+                <h2><strong>Add Piece</strong></h2>                
+            </div>
+            <div class="modal-body">
+                <form (ngSubmit)="onSubmit()" class="login-form">
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="title" [(ngModel)]="model.title" name="title">
+                        <label for="title">Title</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="composer" [(ngModel)]="model.composer" name="composer">
+                        <label for="title">Composer</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="opera" [(ngModel)]="model.opera" name="opera">
+                        <label for="title">Opera</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="language" [(ngModel)]="model.language" name="language">
+                        <label for="title">Language</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="genre" [(ngModel)]="model.genre" name="genre">
+                        <label for="title">Genre</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="status" [(ngModel)]="model.status" name="status">
+                        <label for="title">Status</label>
+                    </div>
+                    <div class="md-form">
+                        <input mdbInputDirective [mdbValidate]="false" required class="form-control" type="text" 
+                            id="location" [(ngModel)]="model.location" name="location">
+                        <label for="title">Location</label>
+                    </div>
+
+                    <button type="button" class="btn primary-color-bg waves-light" aria-label="Close" (click)="addModal.hide()" mdbWavesEffect>Cancel</button>
+                    <button type="submit" class="btn blue-grey lighten-2 waves-light" (click)="addModal.hide()" mdbWavesEffect>Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

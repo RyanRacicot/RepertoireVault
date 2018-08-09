@@ -1,0 +1,47 @@
+
+<!-- If Not Logged In -->
+<div *ngIf="!this.loginService.isLoggedIn" class="primary-color-bg">
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
+    <mdb-navbar-brand>
+      <a class="navbar-brand" routerLink="/home">
+        <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
+      </a>
+    </mdb-navbar-brand>
+  </mdb-navbar>
+</div>
+
+<div *ngIf="this.loginService.isLoggedIn" class="primary-color-bg">
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
+      <mdb-navbar-brand id="navHeader">
+        <a class="navbar-brand" routerLink="/home">
+          <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
+        </a>
+        <span class="navbar-text text-white pull-right">{{this.loginService.username}}</span>
+
+      </mdb-navbar-brand>
+      <links>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/vault" mdbWavesEffect>Vault</a>
+          </li>
+          <li class="nav-item">
+            <a (click)="this.loginService.logout()" class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Logout</a>
+          </li>
+        </ul>
+      </links>
+    </mdb-navbar>
+</div>
+
+<div *ngIf="isProtected()" class="container-fluid">
+  <unauthorized></unauthorized>
+</div>
+
+<div *ngIf="!isProtected()" class="container-fluid" id="body">
+  <router-outlet></router-outlet>
+</div>
+
+
+
