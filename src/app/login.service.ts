@@ -18,8 +18,7 @@ export class LoginService {
     let promise = new Promise((resolve, reject) => {
       this.http.get(`${this.uri}/api/me`, this.getHeaders()).toPromise()
         .then(
-          res => { //Success
-            console.log('Got user: ', res)
+          res => {
             this.isLoggedIn = true
             this.username = res['username']
             resolve(res)
@@ -43,12 +42,12 @@ export class LoginService {
         .then(
           res => {
             this.isLoggedIn = true;
-            this.username = res['username'];
-            resolve(res);
+            this.username = res['username']
+            resolve(res)
           },
           msg => {
-            this.isLoggedIn = false;
-            reject(msg);
+            this.isLoggedIn = false
+            reject(msg)
           }
         )
     })
@@ -65,28 +64,28 @@ export class LoginService {
       this.http.post(`${this.uri}/api/register`, user).toPromise()
         .then(
           res => {
-            this.isLoggedIn = true;
-            this.username = res['username'];
-            resolve(res);
+            this.isLoggedIn = true
+            this.username = res['username']
+            resolve(res)
           },
           msg => {
-            this.isLoggedIn = false;
-            reject(msg);
+            this.isLoggedIn = false
+            reject(msg)
           }
         )
-    });
-    return promise;
+    })
+    return promise
   }
 
   logout() {
-    this.isLoggedIn = false;
-    this.username ='';
-    localStorage.setItem('token', 'null');
-    this.http.post(`${this.uri}/api/logout`, '');
+    this.isLoggedIn = false
+    this.username =''
+    localStorage.setItem('token', 'null')
+    this.http.post(`${this.uri}/api/logout`, '')
   }
   
   private getToken() {
-    return localStorage.getItem('token');
+    return localStorage.getItem('token')
   }
 
   private getHeaders() {
