@@ -48,7 +48,7 @@ app.get('/api/vault', Verify, (req, res) => {
 })
 // Get single piece
 app.get('/api/vault/:id', Verify, (req, res) => {
-    db.collection(PIECES).findOne({'_id': req.params.id}, (err, piece) => {
+    db.collection(PIECES).findOne({'_id': ObjectID(req.params.id)}, (err, piece) => {
         if (err) {
             console.log('Error finding single piece')
         } else {
@@ -58,7 +58,7 @@ app.get('/api/vault/:id', Verify, (req, res) => {
 })
 // Add Piece
 app.post('/api/vault', Verify, (req, res) => {
-    req.body.user = req.userId
+    req.body.user = ObjectID(req.userId)
     var newPiece = req.body
     console.log('Trying to add', newPiece)
     db.collection(PIECES).insertOne(newPiece, (err, piece) => {
@@ -73,7 +73,7 @@ app.post('/api/vault', Verify, (req, res) => {
 
 // Update piece
 app.put('/api/vault/:id', Verify, (req, res) => {
-    db.collection(PIECES).updateOne({'_id': req.params.id}, 
+    db.collection(PIECES).updateOne({'_id': ObjectID(req.params.id)}, 
         { $set: {
             'title': req.body.title,
             'composer': req.body.composer,
@@ -91,7 +91,7 @@ app.put('/api/vault/:id', Verify, (req, res) => {
 })
 // Delete piece
 app.delete('/api/vault/:id', Verify, (req, res) => {
-    db.collection(PIECES).deleteOne({'_id': req.params.id}, (err, piece) => {
+    db.collection(PIECES).deleteOne({'_id': ObjectID(req.params.id)}, (err, piece) => {
         if (err) {
             console.log('Error deleting', err)
         } else {
@@ -105,7 +105,6 @@ app.delete('/api/vault/:id', Verify, (req, res) => {
 
 */
 app.post('/api/register', (req, res) => {
-    console.log('Register req.body.username:', req.body.username)
     db.collection(USERS).findOne({'username': req.body.username}, (error, existingUser) => {
         if (error) res.status(500)
         if (existingUser) {
@@ -124,7 +123,7 @@ app.post('/api/register', (req, res) => {
                     var token = jwt.sign({ id: user._id}, config.secret, {
                         expiresIn: 86400
                     })
-                    res.status(200).send({auth: true, user: req.body.username, token: token})
+                    res.status(200).send({auth: true, user: req.body.username, userId: user._id, token: token})
                 }
             })
         }
@@ -132,7 +131,6 @@ app.post('/api/register', (req, res) => {
 })
 
 app.post('/api/login', (req, res) => {
-    console.log('Login req.body.username:', req.body.username)
     db.collection(USERS).findOne({'username': req.body.username}, (err, user) => {
         if (err) { return res.status(500).send('Error on Server') }
         if (!user) { return res.status(404).send('User not found') }
@@ -144,7 +142,7 @@ app.post('/api/login', (req, res) => {
             var token = jwt.sign({ id: user._id}, config.secret, {
                 expiresIn: 86400
             })
-            return res.status(200).send({auth: true, user: req.body.username, token: token})
+            return res.status(200).send({auth: true, user: req.body.username, userId: user._id, token: token})
         }
     })
 })
