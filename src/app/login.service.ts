@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoginService {
 
   // uri = 'http://localhost:4000'
-  uri = 'https://obscure-basin-95024.herokuapp.com'
+  uri = 'https://immense-tor-11241.herokuapp.com'
   
   isLoggedIn: boolean = false
   username: string

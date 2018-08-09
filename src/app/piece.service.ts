@@ -11,7 +11,7 @@ export class PieceService {
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
   // uri = 'http://localhost:4000'
-  uri = 'https://obscure-basin-95024.herokuapp.com'
+  uri = 'https://immense-tor-11241.herokuapp.com'
   
   pieceSelected: boolean = false
   editing: boolean = false
