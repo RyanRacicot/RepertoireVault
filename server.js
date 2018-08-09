@@ -92,13 +92,20 @@ app.put('/api/vault/:id', Verify, (req, res) => {
 })
 // Delete piece
 app.delete('/api/vault/:id', Verify, (req, res) => {
-  db.collection(PIECES).deleteOne({'_id': ObjectID(req.params.id)}, (err, piece) => {
-    if (err) {
-      console.log('Error deleting', err)
-    } else {
-      res.status(200)
-    }
-  })
+  // db.collection(PIECES).deleteOne({'_id': ObjectID(req.params.id)}, (err, piece) => {
+  //   if (err) {
+  //     console.log(err)
+  //   } else {
+  //     res.status(200)
+  //   }
+  // })
+  try {
+    db.collection(PIECES).deleteOne(
+      { "_id": ObjectID(req.params.id)}
+    )
+  } catch (e) {
+    console.log(e)
+  }
 })
 /*
 
