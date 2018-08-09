@@ -108,7 +108,7 @@ app.post('/api/register', (req, res) => {
     db.collection(USERS).find({'username': req.body.username}, (error, existingUser) => {
         if (error) res.status(500)
         if (existingUser) {
-            res.status(409).json(existingUser)
+            res.status(409).send(existingUser)
         } else {
             var hashedPass = bcrypt.hashSync(req.body.password, 8)
 
