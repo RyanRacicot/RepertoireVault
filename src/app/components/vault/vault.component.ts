@@ -80,6 +80,8 @@ export class VaultComponent implements OnInit {
     )
     .catch((msg) => {
       console.log('Error deleting')
+      this.pieceService.unSelectPiece()
+      this.refresh()
     })
   }
 }
