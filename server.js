@@ -6,10 +6,12 @@ var Verify = require('./VerifyToken')
 var PIECES = "pieces"
 var USERS = "users"
 
+var history = require('connect-history-api-fallback')
 var jwt = require('jsonwebtoken')
 var config = require('./config')
 var bcrypt = require('bcryptjs')
 var app = express()
+app.use(history())
 app.use(bodyParser.json())
 
 var distDir = __dirname + "/dist/"
