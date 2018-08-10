@@ -63,7 +63,8 @@ app.post('/api/vault', Verify, (req, res) => {
   // req.body.user = ObjectID(req.userId)
   req.body.user = req.userId
   var newPiece = req.body
-  console.log('Trying to add', newPiece)
+  console.log('')
+  console.log('Adding new piece', newPiece)
   db.collection(PIECES).insertOne(newPiece, (err, piece) => {
     if (err) {
       console.log('Error adding ', req.body.title)

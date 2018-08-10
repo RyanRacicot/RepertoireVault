@@ -39,8 +39,7 @@ export class RegisterComponent implements OnInit {
         this.email = ''
         this.password = ''
         this.confirmPassword = ''
-        console.log(msg['error'])
-        this.errorMessage = msg
+        this.errorMessage = msg['error']
         this.usernameTaken = true
       })
     } else { //Passwords don't match
