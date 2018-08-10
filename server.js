@@ -166,11 +166,11 @@ app.get('/api/me', Verify, (req, res, next) => {
     if (err) {
       console.log('Error getting user info', err)
     } 
-    // else if (!user) {
-    //     res.status(404).send('Nobody logged in')
-    // } else {
+    else if (!user) {
+        res.status(404).send('Nobody logged in')
+    } else {
         res.status(200).json({username: user.username})
-    // }
+    }
   })
 })
 
