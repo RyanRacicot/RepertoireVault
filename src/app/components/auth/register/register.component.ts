@@ -39,7 +39,7 @@ export class RegisterComponent implements OnInit {
         this.email = ''
         this.password = ''
         this.confirmPassword = ''
-        console.log(msg)
+        console.log(msg['error'])
         this.errorMessage = msg
         this.usernameTaken = true
       })
