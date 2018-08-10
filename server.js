@@ -116,7 +116,7 @@ app.post('/api/register', (req, res) => {
   db.collection(USERS).findOne({'username': req.body.username}, (error, existingUser) => {
     if (error) res.status(500)
     if (existingUser) {
-      res.status(409).json(existingUser)
+      res.status(409).send('Error Registering: Username already exists')
     } else {
       var hashedPass = bcrypt.hashSync(req.body.password, 8)
 
@@ -126,7 +126,7 @@ app.post('/api/register', (req, res) => {
         'password': hashedPass
       }, (err, user) => {
         if (err) {
-          console.log('Error registering', err)
+          res.status(500)
         } else {
           var token = jwt.sign({ id: user._id}, config.secret, {
             expiresIn: 86400

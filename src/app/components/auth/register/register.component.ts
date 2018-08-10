@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   confirmPassword: string
   passwordsMatch: boolean = true
   usernameTaken: boolean
+  errorMessage: string
 
   onRegister() {
     if (this.matchPasswords()) {
@@ -33,12 +34,13 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['./vault']);
       })
       .catch((msg) => {
-        console.log(`Error Registering ${this.username}`, msg);
+        // console.log(`Error Registering ${this.username}`, msg);
         this.username = ''
         this.email = ''
         this.password = ''
         this.confirmPassword = ''
-        this.usernameTaken = true;
+        this.errorMessage = msg
+        this.usernameTaken = true
       })
     } else { //Passwords don't match
       this.password = ''

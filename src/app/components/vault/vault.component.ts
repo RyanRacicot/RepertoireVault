@@ -10,8 +10,8 @@ import { ModalDirective } from 'angular-bootstrap-md';
 export class VaultComponent implements OnInit {
 
   constructor(public pieceService: PieceService) { }
-  @ViewChild('editModal') editModal: ModalDirective;
-  @ViewChild('deleteModal') deleteModal: ModalDirective;
+  @ViewChild('editModal') editModal: ModalDirective
+  @ViewChild('deleteModal') deleteModal: ModalDirective
 
   pieces;
   filterQuery: string; //So filter resets after changes
@@ -29,23 +29,23 @@ export class VaultComponent implements OnInit {
     this.pieceService.getPieces()
     .then((res) => {
       this.pieces = res;
-      this.filterQuery = '';
+      this.filterQuery = ''
     })
     .catch((msg) => {
-      console.log('Error fetching pieces');
+      console.log('Error fetching pieces')
     })
   }
 
   filter(event: any) {
-    let filter: string = event.target.value.toLowerCase();
-    this.filterQuery = event.target.value;
+    let filter: string = event.target.value.toLowerCase()
+    this.filterQuery = event.target.value
 
     let pieces = document.getElementById('repTable').querySelectorAll('tr');
     Array.from(pieces).forEach((piece) => { // Each piece
       let contains: boolean = false;
       Array.from(piece.childNodes).forEach((field) => { // Each field
-        let fieldText = field.textContent.toLowerCase();
-        if (fieldText.indexOf(filter) > -1) contains = true;
+        let fieldText = field.textContent.toLowerCase()
+        if (fieldText.indexOf(filter) > -1) contains = true
       })
       if (contains) {
         piece.style.display = ''
@@ -64,7 +64,7 @@ export class VaultComponent implements OnInit {
       }
     )
     .catch((msg) => {
-      console.log('Failed to save');
+      console.log('Failed to save')
     })
   }
 
@@ -79,7 +79,6 @@ export class VaultComponent implements OnInit {
       }
     )
     .catch((msg) => {
-      console.log('Error deleting')
       this.pieceService.unSelectPiece()
       this.refresh()
     })
