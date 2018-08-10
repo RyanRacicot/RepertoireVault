@@ -128,10 +128,12 @@ app.post('/api/register', (req, res) => {
         'email': req.body.email,
         'password': hashedPass
       }, (err, user) => {
-        if (err) {
-          res.status(500)
-        } else {
-          var token = jwt.sign({ id: user._id}, config.secret, {
+        if (err) return res.status(500)
+        if (!user) console.log('User dne ' , user)
+        else {
+          var _id = user.insertedId.valueOf()
+          console.log('_id: ', _id)
+          var token = jwt.sign({ id: _id}, config.secret, {
             expiresIn: 86400
           })
           res.status(200).send({auth: true, user: req.body.username, userId: user._id, token: token})

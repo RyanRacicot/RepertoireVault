@@ -41,7 +41,7 @@ export class LoginService {
       this.http.post(`${this.uri}/api/login`, user, this.loginHeaders()).toPromise()
         .then(
           res => {
-            this.isLoggedIn = true;
+            this.isLoggedIn = true
             this.username = res['username']
             resolve(res)
           },
