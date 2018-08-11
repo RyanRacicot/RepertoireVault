@@ -14,6 +14,10 @@ export class AppComponent {
     this.getLoggedInUser();
   }
 
+  closeNav() {
+    document.getElementById('navbar-button').click()
+  }
+
   getLoggedInUser() {
     this.loginService.getLoggedInUser()
     .then((res) => {

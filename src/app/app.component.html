@@ -13,7 +13,7 @@
       <span routerLink="/home" class="navbar-brand navbar-logo">
           <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
       </span>
-      <button class="navbar-toggler" 
+      <button id="navbar-button" 
               type="button" 
               data-toggle="collapse"
               data-target="#basicExampleNav"
@@ -27,21 +27,23 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link waves-light" 
+            <a (click)="closeNav()"
+              class="nav-link waves-light" 
               routerLink="/home"
               mdbWavesEffect>
               Home
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-light"
+            <a (click)="closeNav()"
+            class="nav-link waves-light"
             routerLink="/vault"
             mdbWavesEffect>
             Vault
           </a>
           </li>
           <li class="nav-item">
-            <a (click)="this.loginService.logout()"
+            <a (click)="this.loginService.logout(); closeNav()"
               class="nav-link waves-light"
               routerLink="/home"
               mdbWavesEffect>

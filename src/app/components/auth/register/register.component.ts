@@ -34,7 +34,6 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['./vault']);
       })
       .catch((msg) => {
-        // console.log(`Error Registering ${this.username}`, msg);
         this.username = ''
         this.email = ''
         this.password = ''
@@ -46,6 +45,7 @@ export class RegisterComponent implements OnInit {
       this.password = ''
       this.confirmPassword = ''
       this.passwordsMatch = false
+      this.errorMessage = 'Passwords did not match'
     }
   }
 

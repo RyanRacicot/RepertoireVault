@@ -5,9 +5,8 @@
                 <div class="z-depth-2 primary-color-bg" id="innerCard">
                     <h1 class="text-white">Register</h1>
                 </div>
-                <p *ngIf="!passwordsMatch" class="text-center">Passwords did not match</p>
                 <form (ngSubmit)="onRegister()" class="register-form">
-                    <div id="usernameTaken">
+                    <div id="usernameTaken || !passwordsMatch">
                         <p *ngIf="usernameTaken" id="usernameTaken" class="text-center red-text">{{errorMessage}}</p>
                     </div>
                     <div class="md-form">
