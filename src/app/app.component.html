@@ -1,13 +1,5 @@
-
 <!-- If Not Logged In -->
 <div *ngIf="!this.loginService.isLoggedIn" class="primary-color-bg">
-  <!-- <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
-    <mdb-navbar-brand>
-      <a class="navbar-brand" routerLink="/home">
-        <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
-      </a>
-    </mdb-navbar-brand>
-  </mdb-navbar> -->
   <nav class="navbar navbar-expand-lg navbar-dark">
     <span routerLink="/home" class="navbar-brand navbar-logo">
       <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
@@ -15,6 +7,7 @@
   </nav>
 </div>
 
+<!-- Logged In -->
 <div *ngIf="this.loginService.isLoggedIn" class="primary-color-bg">
   <nav class="navbar navbar-expand-lg navbar-dark">
       <span routerLink="/home" class="navbar-brand navbar-logo">
@@ -29,13 +22,13 @@
 
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Home</a>
+            <a class="nav-link waves-light" routerLink="/home" data-toggle="collapse" data-target=".navbar-collapse" mdbWavesEffect>Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link waves-light" routerLink="/vault" mdbWavesEffect>Vault</a>
+            <a class="nav-link waves-light" routerLink="/vault" data-toggle="collapse" data-target=".navbar-collapse" mdbWavesEffect>Vault</a>
           </li>
           <li class="nav-item">
-            <a (click)="this.loginService.logout()" class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Logout</a>
+            <a (click)="this.loginService.logout()" class="nav-link waves-light" routerLink="/home" data-toggle="collapse" data-target=".navbar-collapse" mdbWavesEffect>Logout</a>
           </li>
         </ul>
       </div>
