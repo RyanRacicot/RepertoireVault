@@ -72,11 +72,11 @@ export class VaultComponent implements OnInit {
     this.editModal.hide()
     this.deleteModal.hide()
     this.pieceService.deletePiece(this.pieceService.selectedPieceId)
-    .then(
-      (res) => {
+    .then((res) => {
         this.refresh()
-      },
-      (msg) => {
+      }
+    )
+    .catch((msg) => {
         console.log('Error deleting')
       }
     )
