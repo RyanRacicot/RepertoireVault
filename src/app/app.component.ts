@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoginService } from './login.service';
 
 @Component({
@@ -7,22 +7,11 @@ import { LoginService } from './login.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild('navbarToggler') navbarToggler:ElementRef
 
   constructor(public loginService: LoginService) { }
 
   ngOnInit() {
     this.getLoggedInUser();
-  }
-
-  navBarTogglerIsVisible():boolean {
-    return this.navbarToggler.nativeElement.offsetParent !== null
-  }
-
-  collapseNav() {
-    if (this.navBarTogglerIsVisible()) {
-      this.navbarToggler.nativeElement.click()
-    }
   }
 
   getLoggedInUser() {
