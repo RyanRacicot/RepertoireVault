@@ -106,9 +106,9 @@ app.delete('/api/vault/:id', Verify, (req, res) => {
     db.collection(PIECES).deleteOne(
       { "_id": ObjectID(req.params.id)}
     )
-    res.status(200)
+    res.status(200).send('Successfully deleted')
   } catch (e) {
-    res.status(500)
+    res.status(500).send('Server Error deleting piece')
   }
 })
 /*
