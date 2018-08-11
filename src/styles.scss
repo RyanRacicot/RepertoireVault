@@ -17,3 +17,15 @@ body {
 .primary-color-bg-light {
     background-color: lighten($main-blue, 4%);
 }
+
+::-webkit-scrollbar {
+    width: 12px;
+    background-color: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $main-blue;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+}
