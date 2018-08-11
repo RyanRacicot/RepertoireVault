@@ -24,8 +24,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/assets",
-              "favicon-16x16.png",
-              "favicon-32x32.png"
+              "src/favicon-16x16.png",
+              "src/favicon-32x32.png"
             ],
             "styles": [    
               "node_modules/font-awesome/scss/font-awesome.scss",
@@ -89,8 +89,8 @@
             "scripts": [],
             "assets": [
               "src/assets",
-              "favicon-16x16.png",
-              "favicon-32x32.png"
+              "src/favicon-16x16.png",
+              "src/favicon-32x32.png"
             ]
           }
         },
