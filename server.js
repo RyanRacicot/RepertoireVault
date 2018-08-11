@@ -106,8 +106,9 @@ app.delete('/api/vault/:id', Verify, (req, res) => {
     db.collection(PIECES).deleteOne(
       { "_id": ObjectID(req.params.id)}
     )
+    res.status(200)
   } catch (e) {
-    console.log(e)
+    res.status(500)
   }
 })
 /*
