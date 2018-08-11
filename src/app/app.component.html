@@ -43,15 +43,14 @@
       <span class="navbar-brand">
           <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
       </span>
-      <span class="navbar-text text-white pull-right">{{this.loginService.username}}</span>
-
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
           aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="basicExampleNav">
-        <ul class="navbar-nav mr-auto">
+        <span class="navbar-text text-white">{{this.loginService.username}}</span>
+
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Home</a>
           </li>
