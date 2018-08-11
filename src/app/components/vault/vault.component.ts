@@ -74,6 +74,7 @@ export class VaultComponent implements OnInit {
     this.pieceService.deletePiece(this.pieceService.selectedPieceId)
     .then(
       (res) => {
+        console.log('res => deleted')
         this.pieceService.unSelectPiece()
         this.refresh()
       }
@@ -82,5 +83,7 @@ export class VaultComponent implements OnInit {
       this.pieceService.unSelectPiece()
       this.refresh()
     })
+    
+    this.refresh()
   }
 }
