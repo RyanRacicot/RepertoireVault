@@ -1,17 +1,22 @@
 
 <!-- If Not Logged In -->
 <div *ngIf="!this.loginService.isLoggedIn" class="primary-color-bg">
-  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
+  <!-- <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
     <mdb-navbar-brand>
       <a class="navbar-brand" routerLink="/home">
         <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
       </a>
     </mdb-navbar-brand>
-  </mdb-navbar>
+  </mdb-navbar> -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a href="#" class="navbar-brand">
+      <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
+    </a>
+  </nav>
 </div>
 
 <div *ngIf="this.loginService.isLoggedIn" class="primary-color-bg">
-  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
+  <!-- <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark">
       <mdb-navbar-brand id="navHeader">
         <a class="navbar-brand" routerLink="/home">
           <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
@@ -32,7 +37,29 @@
           </li>
         </ul>
       </links>
-    </mdb-navbar>
+    </mdb-navbar> -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a href="#" class="navbar-brand">
+        <img src="../assets/NavBarLogo.svg" alt="logo" id="logo">
+        <span class="navbar-text text-white pull-right">{{this.loginService.username}}</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="myNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mvNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-light" routerLink="/vault" mdbWavesEffect>Vault</a>
+          </li>
+          <li class="nav-item">
+            <a (click)="this.loginService.logout()" class="nav-link waves-light" routerLink="/home" mdbWavesEffect>Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 </div>
 
 <div *ngIf="isProtected()" class="container-fluid">
